@@ -1,31 +1,35 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
-namespace consoleapp3
+namespace consoleApp3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Peter Rules the IT Universe!");
-            Download();
-            Console.ReadLine();
-        }
 
-        static async void Download()
-        {
-            await Network.Download();
-            Console.WriteLine("Download Complete");
+            int[] arr = { 17, 11, 9, 3, 4, 11, 6, 11, 8, 7 };
+            int arr_size = arr.Length;
+
+            printRepeating(arr, arr_size);
         }
-        class Network
+        static void printRepeating(int[] arr, int size)
         {
-            static public Task Download()
+            int i, j;
+
+            Console.WriteLine("Repeated Elements are :");
+            for (i = 0; i < size; i++)
             {
-                return Task.Run(() => Thread.Sleep(3000));
+                for (j = i + 1; j < size; j++)
+                {
+                    if (arr[i] == arr[j])
+                        Console.WriteLine(arr[i] + " ");
+                    
+                }
             }
         }
     }
